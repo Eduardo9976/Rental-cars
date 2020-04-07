@@ -1,12 +1,10 @@
 <h1>Novo Fabricante</h1>
 
 <% if @manufacturer.errors.full_messages.any?%>
-  <!--<p> Não foi possível salvar, verifique os erros abaixo:</p> -->
-  <p> Nome deve ser único </p>
-  <%else%>
-    <%@manufacturer.errors.full_messages. each do |erro|%>
-      <li>erro</li>
-    <%end%>  
+  <p> Não foi possível salvar, verifique os erros abaixo:</p>
+  <%@manufacturer.errors.full_messages.each do |erro|%>
+      <p> <%= erro %> </p>
+  <%end%> 
   <%end%>    
 
 
