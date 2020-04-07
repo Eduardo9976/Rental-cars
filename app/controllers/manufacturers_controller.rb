@@ -3,7 +3,7 @@ class ManufacturersController < ApplicationController
     @manufacturers = Manufacturer.all
   end
   def show
-    @manufacturer = Manufacturer.find(params[:name])
+    @manufacturer = Manufacturer.find(params[:id])
   end  
 
   def new
@@ -19,5 +19,21 @@ class ManufacturersController < ApplicationController
     else
       render :new
     end    
-  end   
+  end
+  
+  def edit
+    @manufacturer = Manufacturer.find(params[:id])
+  end
+
+  def update 
+    @manufacturer = Manufacturer.find(params[:id])
+    name = params[:manufacturer] [:name]
+    if @manufacturer.update(name: name)
+      redirect_to @manufacturer
+    else
+      render :new
+    end    
+  end  
+  
+  
 end  
