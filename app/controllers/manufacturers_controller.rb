@@ -11,7 +11,7 @@ class ManufacturersController < ApplicationController
   end
   
   def create
-    name = param[:manufacturer] [:name]
+    name = params[:manufacturer] [:name]
     @manufacturer = Manufacturer.new
     @manufacturer.name = name
     if @manufacturer.save
