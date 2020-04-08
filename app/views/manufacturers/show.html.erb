@@ -1,3 +1,6 @@
 <h1><%= @manufacturer.name %></h1>
 <%= link_to "Voltar", manufacturers_path %>
 <%= link_to "Editar", edit_manufacturer_path(@manufacturer) %>
+<%= link_to "Apagar fabricante", @manufacturer,
+              method: :delete,
+              data: { confirm: 'Deseja apagar?' }%>
