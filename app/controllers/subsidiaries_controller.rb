@@ -24,7 +24,18 @@ class SubsidiariesController < ApplicationController
   end
 
 
-
+  def edit
+    set_subsidiary
+  end
+  
+  def update
+    set_subsidiary
+    if @subsidiary.update(params_subsidiary)
+      redirect_to @subsidiary
+    else
+      render :edit
+    end    
+  end  
 
   
   private
