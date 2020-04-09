@@ -1,0 +1,15 @@
+<h6>HTML Index</h6>
+<h1> Filiais </h1>
+
+<%if @subsidiaries.empty?%>
+  <h3>Nenhum fabricante cadastrado</h3>
+<%end%>
+
+<%@subsidiaries.each do |subsidiary|%>
+  <h3><%= link_to subsidiary.name, subsidiary_path(subsidiary)%>
+<% end %>  
+
+<br> <br>
+<%= link_to "Voltar", root_path %>
+<%= link_to "Cadastrar nova Filial", new_subsidiary_path %>
+
