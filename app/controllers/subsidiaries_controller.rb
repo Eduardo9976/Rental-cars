@@ -35,6 +35,13 @@ class SubsidiariesController < ApplicationController
     else
       render :edit
     end    
+  end
+  
+  def destroy
+    set_subsidiary
+    @subsidiary.destroy
+
+    redirect_to subsidiaries_path
   end  
 
   

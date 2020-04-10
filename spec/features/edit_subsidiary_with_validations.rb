@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Edit subsidiary' do
   scenario 'succefully' do
-    Subsidiary.create!(name:'Morumbi Car', cnpj:'34567890102112', address:'Rua Santo Antonio')
+    Subsidiary.create!(name:'Morumbi Car', cnpj:'10.270.911/0001-92', address:'Rua Santo Antonio')
 
     visit root_path
     click_on 'Filiais'
@@ -16,7 +16,7 @@ feature 'Edit subsidiary' do
   end
 
   scenario 'succefully' do
-    Subsidiary.create!(name:'Morumbi Car', cnpj:'34567890102112', address:'Rua Santo Antonio')
+    Subsidiary.create!(name:'Morumbi Car', cnpj:'10.270.911/0001-92', address:'Rua Santo Antonio')
 
     visit root_path
     click_on 'Filiais'
@@ -29,7 +29,7 @@ feature 'Edit subsidiary' do
   end
 
   scenario 'succefully' do
-    Subsidiary.create!(name:'Morumbi Car', cnpj:'34567890102112', address:'Rua Santo Antonio')
+    Subsidiary.create!(name:'Morumbi Car', cnpj:'10.270.911/0001-92', address:'Rua Santo Antonio')
     visit root_path
     click_on 'Filiais'
     click_on 'Morumbi Car'
@@ -37,7 +37,7 @@ feature 'Edit subsidiary' do
     fill_in 'CNPJ', with: '123'
     click_on 'Enviar'
 
-    expect(page).to have_content('is the wrong length (should be 14 characters)')
+    expect(page).to have_content('CNPJ inválido--Exemplo:xx.xxx.911/0001-xx')
   end  
 
 end

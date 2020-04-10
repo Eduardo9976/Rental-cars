@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'Visitor view subsidiaries' do
   scenario 'successfully' do
-    Subsidiary.create!(name:'Morumbi Car', cnpj:'34567890102112', address:'Rua Santo Antonio')
-    Subsidiary.create!(name:'Pinheiros Car', cnpj:'34567890109639', address:'Rua dos Pinheiros')
+    Subsidiary.create!(name:'Morumbi Car', cnpj:'10.270.911/0001-92', address:'Rua Santo Antonio')
+    Subsidiary.create!(name:'Pinheiros Car', cnpj:'94.382.302/0001-15', address:'Rua dos Pinheiros')
     
     visit root_path
     click_on 'Filiais'
@@ -13,8 +13,8 @@ feature 'Visitor view subsidiaries' do
   end
 
   scenario 'and no sibsidiares are created' do
-    Subsidiary.create!(name:'Morumbi Car', cnpj:'34567890102112', address:'Rua Santo Antonio')
-    Subsidiary.create!(name:'Pinheiros Car', cnpj:'3456456789123', address:'Rua dos Pinheiros')
+    Subsidiary.create!(name:'Morumbi Car', cnpj:'10.270.911/0001-92', address:'Rua Santo Antonio')
+    Subsidiary.create!(name:'Pinheiros Car', cnpj:'94.382.302/0001-15', address:'Rua dos Pinheiros')
 
     visit root_path
     click_on 'Filiais'
@@ -28,12 +28,12 @@ feature 'Visitor view subsidiaries' do
     visit root_path
     click_on 'Filiais'
 
-  expect(page).to have_content('Nenhum fabricante cadastrado')
+  expect(page).to have_content('Nenhuma filial cadastrado')
   end
   
   scenario 'and return to home page' do
-    Subsidiary.create!(name:'Morumbi Car', cnpj:'34567890102112', address:'Rua Santo Antonio')
-    Subsidiary.create!(name:'Pinheiros Car', cnpj:'34564567891236', address:'Rua dos Pinheiros')
+    Subsidiary.create!(name:'Morumbi Car', cnpj:'10.270.911/0001-92', address:'Rua Santo Antonio')
+    Subsidiary.create!(name:'Pinheiros Car', cnpj:'94.382.302/0001-15', address:'Rua dos Pinheiros')
 
     visit root_path
     click_on 'Filiais'
@@ -43,8 +43,8 @@ feature 'Visitor view subsidiaries' do
   end
   
   scenario 'and return subsidiaries page' do
-    Subsidiary.create!(name:'Morumbi Car', cnpj:'34567890102112', address:'Rua Santo Antonio')
-    Subsidiary.create!(name:'Pinheiros Car', cnpj:'3456456789123', address:'Rua dos Pinheiros')
+    Subsidiary.create!(name:'Morumbi Car', cnpj:'10.270.911/0001-92', address:'Rua Santo Antonio')
+    Subsidiary.create!(name:'Pinheiros Car', cnpj:'94.382.302/0001-15', address:'Rua dos Pinheiros')
 
     visit root_path
     click_on 'Filiais'
