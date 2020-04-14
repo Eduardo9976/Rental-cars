@@ -5,3 +5,7 @@
 <p> <%= @carcategory.thirdinsurance%> </p>
 
 <%=link_to "Voltar", carcategories_path %>
+<%=link_to "Editar", edit_carcategory_path%>
+<%=link_to "Apagar Categoria", @carcategory,
+              method: :delete,
+              data: { confirm: 'Deseja realmente apagar a Categoria?' }%>

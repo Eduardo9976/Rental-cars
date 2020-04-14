@@ -1,0 +1,15 @@
+<h6> HTML Index </h6>
+<h1> Clientes </h1>
+
+<%if @customers.empty?%>
+  <h3>Nenhum cliente cadastrado</h3>
+<%end%>
+
+<%@customers.each do |customer|%>
+  <h3><%= link_to customer.name, customer_path(customer)%>
+<% end %>  
+
+<br> <br>
+<%= link_to "Voltar", root_path %>
+<%= link_to "Cadastrar novo cliente", new_customer_path %>
+

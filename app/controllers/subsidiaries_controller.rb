@@ -40,7 +40,6 @@ class SubsidiariesController < ApplicationController
   def destroy
     set_subsidiary
     @subsidiary.destroy
-
     redirect_to subsidiaries_path
   end  
 

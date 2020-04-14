@@ -22,6 +22,24 @@ class CarcategoriesController < ApplicationController
     @carcategory = set_carcategory
   end
 
+  def edit
+    @carcategory = set_carcategory
+  end
+  def update
+    set_carcategory
+    if @carcategory.update(params_carcategory)
+      redirect_to @carcategory
+    else
+      render :edit
+    end  
+  end
+  
+  def destroy  
+    set_carcategory
+    @carcategory.destroy
+    redirect_to carcategories_path
+  end  
+
 
   private
 
