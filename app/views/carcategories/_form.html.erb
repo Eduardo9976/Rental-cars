@@ -11,13 +11,13 @@
 
 
 <%= form_for( @carcategory , local: true) do |f| %>
-  <%= f.label :name, 'Nome'%>
-  <%= f.text_field (:name) %>
-  <%= f.label :dialyrate, "Diárias" %>
+  <%= f.label :name %>
+  <%= f.text_field(:name) %>
+  <%= f.label :dialyrate %>
   <%= f.number_field :dialyrate %>
-  <%= f.label :insurance,'Seguro'%>
+  <%= f.label :insurance %>
   <%= f.number_field :insurance %>
-  <%= f.label :thirdinsurance, 'Seguro para terceiros'%>
+  <%= f.label :thirdinsurance %>
   <%= f.number_field :thirdinsurance%>
   <%= f.submit('Enviar') %>
 <% end %>

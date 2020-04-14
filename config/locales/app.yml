@@ -1,0 +1,4 @@
+pt-BR:
+  #I18n.translate('hello') var hello vai a  msg
+  #number_to_currency     moeda
+  #I18n.localize Date.today, format: :long 

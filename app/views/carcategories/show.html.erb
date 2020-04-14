@@ -1,8 +1,13 @@
 <h6> HTML show </h6>
-<p> <%= @carcategory.name %> </p>
-<p> <%= @carcategory.dialyrate %> </p>
-<p> <%= @carcategory.insurance%> </p>
-<p> <%= @carcategory.thirdinsurance%> </p>
+<h1> <%= @carcategory.name %> </h1>
+<dl>
+  <dt>Diária:</dt>
+  <dd> <%=  number_to_currency @carcategory.dialyrate %> </dd>
+  <dt>Seguro:</dt>
+  <dd> <%= number_to_currency @carcategory.insurance%> </dd>
+  <dt>Seguro para terceiros:<dt>
+  <dd> <%= number_to_currency @carcategory.thirdinsurance%> </dd>
+</dl>  
 
 <%=link_to "Voltar", carcategories_path %>
 <%=link_to "Editar", edit_carcategory_path%>

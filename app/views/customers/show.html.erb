@@ -1,9 +1,13 @@
 <h6>HTML show</h6>
 
-<p> <%= @customer.name %> </p>
-<p> <%= @customer.cpf %> </p>
-<p> <%= @customer.email %> </p>
-
+<dl>
+  <dt>Nome:</dt>
+  <dd> <%= @customer.name %> </dd>
+  <dt>CPF:</dt>
+  <dd> <%= @customer.cpf %> </dd>
+  <dt>E-mail</dt>
+  <dd> <%= @customer.email %> </dd>
+</dl>
 <%=link_to "Voltar", customers_path %>
 <%=link_to "Editar", edit_customer_path(@customer)%>
 <%=link_to "Apagar cliente", @customer,
