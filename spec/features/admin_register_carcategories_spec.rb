@@ -1,0 +1,25 @@
+require 'rails_helper'
+
+feature 'Admin register Car Categorie' do
+  scenario 'from index page' do
+    visit root_path
+    click_on 'Categorias carros'
+
+    expect(page).to have_link('Cadastrar nova Categoria', href: new_carcategory_path) 
+  end
+  scenario 'succefully' do 
+    visit root_path
+    click_on 'Categorias carros'
+    click_on 'Cadastrar nova Categoria'
+  
+    fill_in 'Nome', with: 'A'
+    fill_in 'Diárias', with: '1'
+    fill_in 'Seguro', with: '100'
+    fill_in 'Seguro para terceiros', with: '20'
+    click_on 'Enviar'
+
+    expect(current_path).to eq carcategory_path(Carcategory.last.id)
+    expect(page).to have_content('A')
+    expect(page).to have_link('Voltar')
+  end  
+end

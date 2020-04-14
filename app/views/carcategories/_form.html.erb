@@ -3,7 +3,7 @@
 
 <%if @carcategory.errors.full_messages.any? %>
   <p>Não foi possível salvar, verifique os erros abaixo: </p>
-  <%@carcategory.erros.full_messages.each do |erro| %>
+  <%@carcategory.errors.full_messages.each do |erro| %>
     <p> <%= erro %> </p>
   <% end %>
   <% end %>  

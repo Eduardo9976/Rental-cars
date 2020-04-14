@@ -5,6 +5,6 @@ feature 'Visitor view customers' do
     visit  root_path
     click_on 'Clientes'
 
-  expect(page).to have_content('HTML index')  
+  expect(page).to have_content('Nenhum cliente cadastrado')  
   end
 end

@@ -1,6 +1,11 @@
 <h6>HTML Form New--edit</h6>
 
-
+<%if @customer.errors.full_messages.any? %>
+  <p>Não foi possível salvar, verifique os erros abaixo: </p>
+  <%@customer.errors.full_messages.each do |erro| %>
+    <p> <%= erro %> </p>
+  <% end %>
+  <% end %> 
 
 <%= form_for(@customer , local: true) do |f| %>
   <%= f.label :name, 'Nome:'%>
