@@ -17,9 +17,11 @@ RSpec.describe CarModel, type: :model do
         third_insurance: 10)
       manufacturer = Manufacturer.create!(name: 'Honda')
       CarModel.create!(name: 'Civic', fuel_type: 'flex', motorization: '1.6',
-        year: 2016, manufacturer: manufacturer, car_category: category )
-      
+        year: 2025, manufacturer: manufacturer, car_category: category )
+  
       car_model.valid?
+
+      expect(page).to have_content('Ano de fabricação incorreto')
     end
   end    
 end
