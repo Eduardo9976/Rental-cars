@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  
+  before_action :set_customers, only: [:show, :edit, :update, :destroy]
   def index
     @customers = Customer.all
   end
@@ -19,15 +19,14 @@ class CustomersController < ApplicationController
   end
   
   def show
-    @customer = set_customers
+    
   end   
 
   def edit 
-    set_customers
+    
   end
   
   def update
-    @customer = set_customers
     if @customer.update(params_customer)
       redirect_to @customer
     else
@@ -36,7 +35,6 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    set_customers
     @customer.destroy
     redirect_to customers_path
   end

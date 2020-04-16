@@ -1,23 +1,23 @@
 <h6>form render:new e edit <h6>
 
 
-<%if @carcategory.errors.full_messages.any? %>
+<%if @car_category.errors.full_messages.any? %>
   <p>Não foi possível salvar, verifique os erros abaixo: </p>
-  <%@carcategory.errors.full_messages.each do |erro| %>
+  <%@car_category.errors.full_messages.each do |erro| %>
     <p> <%= erro %> </p>
   <% end %>
   <% end %>  
 
 
 
-<%= form_for( @carcategory , local: true) do |f| %>
+<%= form_for( @car_category , local: true) do |f| %>
   <%= f.label :name %>
   <%= f.text_field(:name) %>
-  <%= f.label :dialyrate %>
-  <%= f.number_field :dialyrate %>
+  <%= f.label :daily_rate %>
+  <%= f.number_field :daily_rate %>
   <%= f.label :insurance %>
   <%= f.number_field :insurance %>
-  <%= f.label :thirdinsurance %>
-  <%= f.number_field :thirdinsurance%>
+  <%= f.label :third_insurance %>
+  <%= f.number_field :third_insurance%>
   <%= f.submit('Enviar') %>
 <% end %>

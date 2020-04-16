@@ -5,7 +5,7 @@ feature 'Admin register Car Categorie' do
     visit root_path
     click_on 'Categorias carros'
 
-    expect(page).to have_link('Cadastrar nova Categoria', href: new_carcategory_path) 
+    expect(page).to have_link('Cadastrar nova Categoria', href: new_car_category_path) 
   end
   scenario 'succefully' do 
     visit root_path
@@ -18,7 +18,7 @@ feature 'Admin register Car Categorie' do
     fill_in 'Seguro para terceiros', with: '20'
     click_on 'Enviar'
 
-    expect(current_path).to eq carcategory_path(Carcategory.last.id)
+    expect(current_path).to eq car_category_path(CarCategory.last.id)
     expect(page).to have_content('A')
     expect(page).to have_link('Voltar')
   end  

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin register valid car category' do
   scenario 'and name must be unique' do
-    Carcategory.create(name: 'B', dialyrate: '2', insurance: '120', thirdinsurance: '30')
+    CarCategory.create(name: 'B', daily_rate: '2', insurance: '120', third_insurance: '30')
     visit root_path
     click_on 'Categorias carros'
     click_on 'Cadastrar nova Categoria'
@@ -13,7 +13,7 @@ feature 'Admin register valid car category' do
     fill_in 'Seguro para terceiros', with: '20'
     click_on 'Enviar'
 
-    expect(page).to have_content('Name Categoria já cadastrada')
+    expect(page).to have_content('já está em uso')
   end
 
   scenario 'and name cant not be blank' do

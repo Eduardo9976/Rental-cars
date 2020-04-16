@@ -1,6 +1,6 @@
 class Subsidiary < ApplicationRecord
-  validates :name, :cnpj, :address,  presence: {message: 'O campo não pode ficar em branco'}
-  validates :cnpj, uniqueness: {message: 'CNPJ já cadastrado'}
+  validates :name, :cnpj, :address,  presence: true
+  validates :cnpj, uniqueness: true
   
   validate :cnpj_validation
   def cnpj_validation

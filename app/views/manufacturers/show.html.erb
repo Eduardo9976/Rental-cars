@@ -1,4 +1,7 @@
-<h1><%= @manufacturer.name %></h1>
+<dl>
+  <dt>Fabricante:<dt> 
+  <dd><%= @manufacturer.name %></dd>
+</dl>  
 <%= link_to "Voltar", manufacturers_path %>
 <%= link_to "Editar", edit_manufacturer_path(@manufacturer) %>
 <%= link_to "Apagar fabricante", @manufacturer,

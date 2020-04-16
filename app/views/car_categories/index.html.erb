@@ -1,0 +1,15 @@
+<h6>HTML index<h6>
+
+<h1>Categoria de carros</h1>
+<%if @car_categories.empty? %>
+   <h3>Nenhuma categoria cadastrada </h3>
+<% end %>
+    
+
+<%@car_categories.each do |car_category|%>
+  <h3><%= link_to car_category.name, car_category_path(car_category) %></h3>
+<% end %>
+
+<br> <br>
+<%= link_to "Voltar", root_path %>
+<%= link_to "Cadastrar nova Categoria", new_car_category_path %>

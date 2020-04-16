@@ -1,0 +1,16 @@
+<h6> HTML show </h6>
+<h1> <%= @car_category.name %> </h1>
+<dl>
+  <dt>Diária:</dt>
+  <dd> <%=  number_to_currency @car_category.daily_rate %> </dd>
+  <dt>Seguro:</dt>
+  <dd> <%= number_to_currency @car_category.insurance%> </dd>
+  <dt>Seguro para terceiros:<dt>
+  <dd> <%= number_to_currency @car_category.third_insurance%> </dd>
+</dl>  
+
+<%=link_to "Voltar", car_categories_path %>
+<%=link_to "Editar", edit_car_category_path%>
+<%=link_to "Apagar Categoria", @car_category,
+              method: :delete,
+              data: { confirm: 'Deseja realmente apagar a Categoria?' }%>
