@@ -12,4 +12,10 @@
   <dd> <%= @car_model.motorization %> </dd>
   <dt>Ano: </dt>
   <dd> <%= @car_model.year %> </dd>
-</dl>   
+</dl>
+
+<%= link_to  "Voltar", car_models_path %>
+<%= link_to "Editar", edit_car_model_path%>
+<%= link_to "Apagar", @car_category,
+              method: :delete,
+              data: { confirm: 'Deseja realmente apagar a Categoria?' }%>

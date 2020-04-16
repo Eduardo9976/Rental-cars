@@ -1,5 +1,5 @@
 class CarModelsController < ApplicationController
-  before_action :set_car_model, only: [:show]
+  before_action :set_car_model, only: [:show, :edit, :update, :destroy]
   def index
     @car_models = CarModel.all
   end
@@ -18,6 +18,23 @@ class CarModelsController < ApplicationController
 
   def show
     
+  end
+  
+
+  def edit
+
+  end
+  def update
+    if @car_model.update(params_car_model)
+      redirect_to @car_model
+    else
+      render :edit
+    end    
+  end
+  
+  def destroy
+    @car_model.destroy
+    redirect_to car_models_path
   end  
   
   

@@ -1,6 +1,13 @@
 <h6>HTML form - new--edit</h6>
 
-<%= form_with(model: CarModel.new) do |f| %>
+<% if @car_model.errors.full_messages.any? %>
+  <p>Não foi possível salvar, verifique os erros abaixo: </p>
+  <% @car_model.errors.full_messages.each do |erro| %>
+    <p> <%= erro %> </p>
+  <% end %>
+<% end %> 
+
+<%= form_with(model: @car_model) do |f| %>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
