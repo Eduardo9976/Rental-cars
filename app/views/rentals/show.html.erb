@@ -3,12 +3,15 @@
 <h1> <%= @rental.customer.identification %>
 <dl>
   <dt> Data incial: </dt>
-  <dd> <%= @rental.start_date %> </dd>
+  <dd> <%= l @rental.start_date, format: :default  %> </dd>
   <dt> Data final: </dt>
-  <dd> <%= @rental.end_date %> </dd>
+  <dd> <%= l @rental.end_date, format: :default  %> </dd>
   <dt> Categoria: </dt>
-  <dd> <%= @rental.car_category.name %>
+  <dd> <%=  @rental.car_category.name %>
 <dl>
 
 <%= link_to "Voltar", rentals_path %>
 <%= link_to "Editar", edit_rental_path%>
+<%= link_to "Apagar", @rental,
+              method: :delete,
+              data: { confirm: 'Deseja realmente apagar a Categoria?' }%>

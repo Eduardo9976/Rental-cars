@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem "cpf_cnpj"
 #Valid CNPJ
+gem 'validates_email_format_of', '~> 1.6', '>= 1.6.3'
+#Valid E-mail
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -12,8 +12,8 @@ feature 'Admin view rentals' do
     visit root_path
     click_on 'Locações'
     
-    expect(page).to have_content('16/04/2030')
-    expect(page).to have_content('18/04/2030')
+    expect(page).to have_content('2030-04-16')
+    expect(page).to have_content('2030-04-18')
     expect(page).to have_content('Fulano Sicrano')
     expect(page).to have_content(/A/)
   end

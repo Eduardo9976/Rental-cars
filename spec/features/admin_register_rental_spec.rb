@@ -16,7 +16,6 @@ feature 'Admin register rental' do
     select car_category.name, from: 'Categoria'
     select customer.name, from: 'Cliente'
     click_on 'Enviar'
-    
 
     expect(page).to have_content('16/04/2030')
     expect(page).to have_content('18/04/2030')

@@ -1,14 +1,13 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: %i[show edit update  ]
+  before_action :set_rental, only: %i[show edit update destroy]
+  before_action :bd_all
   def index
     @rentals = Rental.all
   end
 
   def new
+    bd_all
     @rental = Rental.new
-    #var para o collection
-    @car_categories = CarCategory.all
-    @customers = Customer.all
   end
   def create
     @rental = Rental.new(params_rental)
@@ -26,7 +25,7 @@ class RentalsController < ApplicationController
   
 
   def edit
-
+    bd_all
   end
   
   def update 
@@ -35,7 +34,12 @@ class RentalsController < ApplicationController
     else
       render :edit
     end
-  end    
+  end
+  
+  def destroy
+    @rental.destroy
+    redirect_to rentals_path
+  end  
 
   
 
@@ -46,7 +50,13 @@ class RentalsController < ApplicationController
   end
   
   def params_rental
-    params.require(:rental) .permit(:start_date, :end_date,
+    params.require(:rental).permit(:start_date, :end_date,
                                     :car_category_id, :customer_id)
+  end
+   
+  def bd_all
+   #var para o collection
+   @car_categories = CarCategory.all
+   @customers = Customer.all
   end  
 end  

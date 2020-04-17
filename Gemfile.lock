@@ -190,6 +190,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
+    validates_email_format_of (1.6.3)
+      i18n
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -225,6 +227,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
+  validates_email_format_of (~> 1.6, >= 1.6.3)
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
 
