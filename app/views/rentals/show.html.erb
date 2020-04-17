@@ -1,0 +1,14 @@
+<h6>HTML show</h6>
+
+<h1> <%= @rental.customer.identification %>
+<dl>
+  <dt> Data incial: </dt>
+  <dd> <%= @rental.start_date %> </dd>
+  <dt> Data final: </dt>
+  <dd> <%= @rental.end_date %> </dd>
+  <dt> Categoria: </dt>
+  <dd> <%= @rental.car_category.name %>
+<dl>
+
+<%= link_to "Voltar", rentals_path %>
+<%= link_to "Editar", edit_rental_path%>

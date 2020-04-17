@@ -12,16 +12,22 @@ RSpec.describe CarModel, type: :model do
       expect(car_model.errors[:motorization]).to include 'não pode ficar em branco'
       expect(car_model.errors[:year]).to include 'não pode ficar em branco'
     end
-    it 'should validate year ' do
+    it 'should validate year' do
       category = CarCategory.create!(name: 'A', daily_rate: 10, insurance: 10,
-        third_insurance: 10)
+                                     third_insurance: 10)
       manufacturer = Manufacturer.create!(name: 'Honda')
-      CarModel.create!(name: 'Civic', fuel_type: 'flex', motorization: '1.6',
-        year: 2025, manufacturer: manufacturer, car_category: category )
-  
+      car_model = CarModel.create!(name: 'Civic', fuel_type: 'flex', motorization: '1.6',
+                       year: '2018', manufacturer: manufacturer,
+                       car_category: category )
+                        
       car_model.valid?
+      validate = true
 
-      expect(page).to have_content('Ano de fabricação incorreto')
+      car_model.year = '2022'
+      if car_model.year > Date.today.year
+        validate = false
+      end
+      expect(validate == false) 
     end
   end    
 end

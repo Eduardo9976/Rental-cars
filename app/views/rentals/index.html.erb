@@ -1,0 +1,22 @@
+<h6>HTML index</h6>
+<h1>Locações</h1>
+
+<%if @rentals.empty?%>
+  <h3>Nenhum registro cadastrado</h3>
+<% end %>  
+
+<% @rentals.each do |rental| %>
+  <dl>
+    <dt> Cliente: </dt>
+    <dd> <%= link_to "#{rental.customer.identification}", rental_path(rental) %> </dd>
+    <dt> Categoria: </dt>
+    <dd> <%= rental.car_category.name %> </dd>
+    <dt> Data inicial: </dt>
+    <dd> <%= I18n.l rental.start_date %> </dd>
+    <dt> Data final: </dt>
+    <dd> <%= I18n.l rental.end_date %> </dd>
+  </dl>
+<% end %>    
+
+<%= link_to  "Voltar", root_path %>
+<%= link_to "Registar locação", new_rental_path %>

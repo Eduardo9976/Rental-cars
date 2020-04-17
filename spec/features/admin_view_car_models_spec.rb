@@ -5,12 +5,12 @@ feature 'Admin view car models' do
     #arrange
     fiat = Manufacturer.create!(name: 'Fiat')
     honda = Manufacturer.create!(name: 'Honda')
-    cat_a = CarCategory.create!(name: 'A', daily_rate: 50, insurance: 20, third_insurance: 20)
-    cat_d = CarCategory.create!(name: 'D', daily_rate: 150, insurance: 60, third_insurance: 60)
+    cat_a = CarCategory.create!(name: 'A', daily_rate: '50', insurance: '20', third_insurance: '20')
+    cat_d = CarCategory.create!(name: 'D', daily_rate: '150', insurance: '60', third_insurance: '60')
 
 
-    CarModel.create!(name:'Mobi', manufacturer: fiat, car_category: cat_a)
-    CarModel.create!(name:'Civic', manufacturer:honda, car_category: cat_d)
+    CarModel.create!(name:'Mobi', manufacturer: fiat, car_category: cat_a, fuel_type: 'flex', motorization:'2.0', year: '2018')
+    CarModel.create!(name:'Civic', manufacturer:honda, car_category: cat_d, fuel_type: 'flex', motorization:'2.0', year: '2018')
 
     #act
     visit root_path

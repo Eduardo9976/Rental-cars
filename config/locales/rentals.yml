@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      rental:
+        one: Alguel
+        other: Aluguéis 
+    attributes:
+      rental:
+        start_date: Data inicial
+        end_date: Data final
+        motorization: Motor
+        car_category_id: Categoria
+        customer_id: Nome
