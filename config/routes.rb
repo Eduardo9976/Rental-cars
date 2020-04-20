@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :customers  
   resources :car_models, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :rentals, only: %i[index new create show edit update destroy] 
+  resources :cars, only: %i[index new create show edit update destroy]
+  
 end

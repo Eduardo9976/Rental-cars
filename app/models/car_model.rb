@@ -1,4 +1,6 @@
+
 class CarModel < ApplicationRecord
+  has_many :cars
   belongs_to :manufacturer
   belongs_to :car_category
   validates :name, :fuel_type, :motorization, :year,  presence: true
