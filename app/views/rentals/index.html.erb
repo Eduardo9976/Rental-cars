@@ -7,13 +7,13 @@
 
 <% @rentals.each do |rental| %>
   <dl>
-    <dt> Cliente: </dt>
+    <dt> <%= Rental.human_attribute_name(:customer) %>: </dt>
     <dd> <%= link_to "#{rental.customer.identification}", rental_path(rental) %> </dd>
-    <dt> Categoria: </dt>
+    <dt> <%= Rental.human_attribute_name(:car_category) %>: </dt>
     <dd> <%= rental.car_category.name %> </dd>
-    <dt> Data inicial: </dt>
+    <dt> <%= Rental.human_attribute_name(:start_date) %>: </dt>
     <dd> <%= rental.start_date %> </dd>
-    <dt> Data final: </dt>
+    <dt> <%= Rental.human_attribute_name(:end_date) %>: </dt>
     <dd> <%= rental.end_date %> </dd>
   </dl>
 <% end %>    

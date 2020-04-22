@@ -1,11 +1,11 @@
 <h6>HTML show</h6>
 
 <dl>
-  <dt>Nome:</dt>
+  <dt> <%= Customer.human_attribute_name(:name) %> </dt>
   <dd> <%= @customer.name %> </dd>
-  <dt>CPF:</dt>
+  <dt> <%= Customer.human_attribute_name(:cpf) %> </dt>
   <dd> <%= @customer.cpf %> </dd>
-  <dt>E-mail</dt>
+  <dt> <%= Customer.human_attribute_name(:email) %> </dt>
   <dd> <%= @customer.email %> </dd>
 </dl>
 <%=link_to "Voltar", customers_path %>

@@ -2,11 +2,11 @@
 
 <h1> <%= @car.car_model.name %> </h1>
 <dl>
-  <dt>Placa:</dt>
+  <dt> <%= Car.human_attribute_name(:license_plate) %> </dt>
   <dd> <%=  @car.license_plate %> </dd>
-  <dt>Cor:</dt>
+  <dt> <%= Car.human_attribute_name(:color) %> </dt>
   <dd> <%= @car.color%> </dd>
-  <dt>Quilometragem:<dt>
+  <dt> <%= Car.human_attribute_name(:mileage) %> <dt>
   <dd> <%= @car.mileage%> </dd>
 </dl>  
 

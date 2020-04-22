@@ -11,4 +11,6 @@ pt-BR:
         motorization: Motor
         year: Ano de fabricação 
         car_category_id: Categoria
+        car_category: Categoria
         manufacturer_id: Fabricante
+        manufacturer: Fabricante

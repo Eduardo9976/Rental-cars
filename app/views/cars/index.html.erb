@@ -1,12 +1,15 @@
 <h6>HTML index</h6>
 <h1>Carros</h1>
 
+<%if @cars.empty?%>
+  <h3>Nenhum carro cadastrado</h3>
+<%end%>
 
 <% @cars.each do |car| %>
   <dl>
-    <dt> Nome: <dt>
+    <dt> <%= Car.human_attribute_name(:car_model)%>: <dt>
     <dd> <%= car.car_model.name  %> </dd>
-    <dt> Placa: <dt>
+    <dt> <%= Car.human_attribute_name(:license_plate) %>: <dt>
     <dd> <%= link_to car.license_plate, car_path(car) %> </dd> 
   </dl>
 <% end %>  

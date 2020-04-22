@@ -2,11 +2,11 @@
 
 <h1> <%= @rental.customer.identification %>
 <dl>
-  <dt> Data incial: </dt>
+  <dt> <%= Rental.human_attribute_name(:start_date) %> </dt>
   <dd> <%= l @rental.start_date, format: :default  %> </dd>
-  <dt> Data final: </dt>
+  <dt> <%= Rental.human_attribute_name(:end_date)%> </dt>
   <dd> <%= l @rental.end_date, format: :default  %> </dd>
-  <dt> Categoria: </dt>
+  <dt> <%= Rental.human_attribute_name(:car_category)%> </dt>
   <dd> <%=  @rental.car_category.name %>
 <dl>
 

@@ -4,7 +4,7 @@ feature 'Admin destroy rental' do
   scenario 'Succefully'do
   car_category = CarCategory.create!(name:'A', daily_rate: 100, insurance:100, 
                                      third_insurance: 100)
-  customer = Customer.create!(name: 'Fulano Sicrano', cpf:'372.427.458-2',
+  customer = Customer.create!(name: 'Fulano Sicrano', cpf:'372.427.458-02',
                               email: 'teste@teste.com.br')
     
   visit root_path
@@ -18,8 +18,6 @@ feature 'Admin destroy rental' do
   click_on 'Enviar'
 
   click_on "Apagar"
-  click_on "OK"
 
-  expect(page).to rental_path
   end
 end

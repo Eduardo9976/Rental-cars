@@ -2,8 +2,8 @@ pt-BR:
   activerecord:
     models:
       rental:
-        one: Alguel
-        other: Aluguéis 
+        one: Locação
+        other: Locações
     attributes:
       rental:
         start_date: Data inicial
