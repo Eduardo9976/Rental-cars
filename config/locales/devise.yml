@@ -5,4 +5,5 @@ pt-BR:
         one: Usuário
         other: Usuários
     attributes:
-      password: Senha
+      user:
+        password: Senha

@@ -7,7 +7,7 @@ feature 'User log in'do
     visit root_path
     click_on 'Entrar'
     fill_in 'Email', with: 'teste@test.com.br'
-    fill_in 'Password', with: '12345678'
+    fill_in 'Senha', with: '12345678'
     click_on 'Log in'
     
     expect(page).to have_content('Login efetuado com sucesso!')
