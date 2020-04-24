@@ -1,6 +1,8 @@
 class RentalsController < ApplicationController
   before_action :set_rental, only: %i[show edit update destroy]
   before_action :bd_all
+  before_action :authenticate_user!
+  
   def index
     @rentals = Rental.all
   end
@@ -12,6 +14,7 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(params_rental)
     if @rental.save
+      flash[:notice] = 'Cadastrado com sucesso'
       redirect_to @rental
     else 
       render :new

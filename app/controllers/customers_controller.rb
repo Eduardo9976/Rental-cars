@@ -1,5 +1,7 @@
 class CustomersController < ApplicationController
   before_action :set_customers, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  
   def index
     @customers = Customer.all
   end

@@ -2,12 +2,14 @@ require 'rails_helper'
 
 feature 'Admin valid cars' do
   scenario 'Succefully' do
+    user = User.create!(email: 'teste@teste.com.br', password:'12345678')
     gm = Manufacturer.create!(name: 'GM')
     cat_a = CarCategory.create!(name: 'A', daily_rate: '50', insurance: '20', third_insurance: '20')
     model = CarModel.create!(name:'Agile', manufacturer:gm, car_category: cat_a, fuel_type: 'flex', motorization:'2.0', year: '2018')
     
     car = Car.create!(license_plate: 'CBO-0001', color: 'Vermelho',mileage: 0, car_model:model)
 
+    login_as user, scope: :user
     visit root_path
     click_on 'Carros'
     click_on 'Registrar novo carro'

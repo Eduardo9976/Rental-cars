@@ -1,14 +1,6 @@
-<%= flash[:notice] %>
-<h1>Rental Cars</h1>
+<h3>Rental Cars</h3>
 
-<p>Bem vindo ao sistema de gestão de locação</p>
+<h1>Bem vindo ao sistema de gestão de locação</h1>
 
-<%= link_to 'Entrar', new_user_session_path %>
-<%= link_to 'Fabricantes', manufacturers_path %>
-<%= link_to 'Filiais', subsidiaries_path %>
-<%= link_to 'Categorias carros', car_categories_path %>
-<%= link_to 'Clientes', customers_path %>
-<%= link_to 'Modelos de Carros', car_models_path %>
-<%= link_to 'Locações', rentals_path %>
-<%= link_to 'Carros', cars_path %>
+
 <h5> <%= I18n.localize Time.now, format: :long %> </h5>

@@ -2,12 +2,18 @@ require 'rails_helper'
 
 feature 'Admin register Car Categorie' do
   scenario 'from index page' do
+    user = User.create!(email:'teste@teste.com.br', password:'12345678')
+
+    login_as user, scope: :user
     visit root_path
     click_on 'Categorias carros'
 
     expect(page).to have_link('Cadastrar nova Categoria', href: new_car_category_path) 
   end
-  scenario 'succefully' do 
+  scenario 'succefully' do
+    user = User.create!(email:'teste@teste.com.br', password:'12345678')
+
+    login_as user, scope: :user
     visit root_path
     click_on 'Categorias carros'
     click_on 'Cadastrar nova Categoria'

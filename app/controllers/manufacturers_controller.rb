@@ -1,5 +1,7 @@
 class ManufacturersController < ApplicationController
   #before_action :set_manufacturer only[]
+  before_action :authenticate_user!
+  
   def index
     @manufacturers = Manufacturer.all
   end
