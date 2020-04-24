@@ -1,6 +1,12 @@
 <h6>HTML index</h6>
 <h1>Carros</h1>
 
+<%= form_with url:search_cars_path, local: true, method: :get do |f| %>
+  <%= f.label :q, 'Busca'%>
+  <%= f.search_field :q %>
+  <%= f.submit 'Pesquisar' %>
+<% end %>  
+
 <%if @cars.empty?%>
   <h3>Nenhum carro cadastrado</h3>
 <%end%>

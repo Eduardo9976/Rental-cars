@@ -39,6 +39,11 @@ class CarsController < ApplicationController
   def destroy
     @car.destroy
     redirect_to cars_path
+  end 
+  
+  def search 
+    @cars = Car.where(license_plate: params[:q])
+    render :index
   end  
   
 

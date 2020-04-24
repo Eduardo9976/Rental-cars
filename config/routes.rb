@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   resources :rentals, only: %i[index new create show edit update destroy] do
     get 'search', on: :collection
   end
-  resources :cars, only: %i[index new create show edit update destroy]
+  resources :cars, only: %i[index new create show edit update destroy] do 
+    get 'search', on: :collection
+  end  
   
   
 end
