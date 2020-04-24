@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Admin view car models' do
-  scenario 'succefully' do
+  scenario 'successfully' do
     #arrange
     user = User.create!(email: 'teste@teste.com.br', password:'12345678')
     fiat = Manufacturer.create!(name: 'Fiat')

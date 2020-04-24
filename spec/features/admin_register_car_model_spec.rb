@@ -22,6 +22,7 @@ feature 'Admin register car model' do
     click_on 'Enviar'
 
     #assert
+    expect(page).to have_content('Cadastrado com sucesso')
     expect(page).to have_content('Mobi')
     expect(page).to have_content('Fabricante: Fiat')
     expect(page).to have_content('Categoria: A')

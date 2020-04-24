@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'User log in'do
-  scenario 'Succefully'do
+  scenario 'Successfully'do
     User.create!(email: 'teste@test.com.br', password: '12345678')
     
     visit root_path

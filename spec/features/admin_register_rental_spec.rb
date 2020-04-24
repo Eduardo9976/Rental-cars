@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Admin register rental' do 
-  scenario 'suceffuly' do
+  scenario 'sucessffuly' do
     user = User.create!(email: 'teste@teste.com.br', password:'12345678')
     car_category = CarCategory.create!(name:'A', daily_rate: 100, insurance:100, 
                                       third_insurance: 100)

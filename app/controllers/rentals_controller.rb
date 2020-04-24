@@ -16,7 +16,7 @@ class RentalsController < ApplicationController
     if @rental.save
       flash[:notice] = 'Cadastrado com sucesso'
       redirect_to @rental
-    else 
+    else
       render :new
     end
   end
@@ -33,6 +33,7 @@ class RentalsController < ApplicationController
   
   def update 
     if @rental.update(params_rental)
+      flash[:notice] = 'Salvo com sucesso'
       redirect_to @rental
     else
       render :edit
@@ -44,6 +45,10 @@ class RentalsController < ApplicationController
     redirect_to rentals_path
   end  
 
+  def search
+    @rentals = Rental.where(code: params[:q])
+    render :index
+  end  
   
 
   private
@@ -61,5 +66,5 @@ class RentalsController < ApplicationController
    #var para o collection
    @car_categories = CarCategory.all
    @customers = Customer.all
-  end  
+  end
 end  

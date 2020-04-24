@@ -21,6 +21,7 @@ feature "Admin register new car" do
     click_on 'Enviar'
     
 
+    expect(page).to have_content('Cadastrado com sucesso')
     expect(page).to have_content('CWO-0109')
     expect(page).to have_content('2020')
     expect(page).to have_content(102000)

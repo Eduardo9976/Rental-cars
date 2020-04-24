@@ -13,6 +13,7 @@ class CarCategoriesController < ApplicationController
   def create 
     @car_category = CarCategory.new(params_car_category)
     if @car_category.save
+      flash[:notice] = 'Cadastrado com sucesso'
       redirect_to @car_category
     else
       render :new
@@ -28,6 +29,7 @@ class CarCategoriesController < ApplicationController
   end
   def update
     if @car_category.update(params_car_category)
+      flash[:notice] = 'Salvo com sucesso'
       redirect_to @car_category
     else
       render :edit

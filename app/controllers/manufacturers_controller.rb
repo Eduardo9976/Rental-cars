@@ -17,6 +17,7 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.new(manufacturer_params)
     #@manufacturer.name = name
     if @manufacturer.save
+      flash[:notice] = 'Cadastrado com sucesso'
       redirect_to @manufacturer
     else
       render :new
@@ -32,6 +33,7 @@ class ManufacturersController < ApplicationController
     #@manufacturer = Manufacturer.find(params[:id])
     set_manufacturer
     if @manufacturer.update(manufacturer_params)
+      flash[:notice] = 'Salvo com sucesso'
       redirect_to @manufacturer
     else
       render :edit

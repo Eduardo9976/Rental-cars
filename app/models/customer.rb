@@ -1,6 +1,7 @@
 class Customer < ApplicationRecord
   has_many :rentals
   validates :name, :cpf, :email,  presence: true
+  validates :cpf, :email, uniqueness: true
   validates :email, :email_format => { :message => ' inválido' }
 
 

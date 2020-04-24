@@ -11,21 +11,21 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      <%= link_to 'Fabricantes', manufacturers_path %>
-      <%= link_to 'Categorias carros', car_categories_path %>
-      <%= link_to 'Modelos de Carros', car_models_path %>
-      <%= link_to 'Filiais', subsidiaries_path %>
-      <%= link_to 'Clientes', customers_path %>
-      <%= link_to 'Locações', rentals_path %>
-      <%= link_to 'Carros', cars_path %>
+      <nav>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <%= link_to 'Fabricantes', manufacturers_path %>
+        <%= link_to 'Categorias carros', car_categories_path %>
+        <%= link_to 'Modelos de Carros', car_models_path %>
+        <%= link_to 'Filiais', subsidiaries_path %>
+        <%= link_to 'Clientes', customers_path %>
+        <%= link_to 'Locações', rentals_path %>
+        <%= link_to 'Carros', cars_path %>
+      </nav>  
     <% else%>
         <%= link_to 'Entrar', new_user_session_path %>
     <% end %>      
-   
-    <%= flash[:success ]%>
-    <%= flash[:notice ]%>
-    <%= flash[:alert ]%>
+    <p> <%= flash[:notice ]%> </p>
+    <p> <%= flash[:alert ]%>  </p>
     <%= yield %>
   </body>
 </html>

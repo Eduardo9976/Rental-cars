@@ -25,6 +25,7 @@ feature 'Admin register Car Categorie' do
     click_on 'Enviar'
 
     expect(current_path).to eq car_category_path(CarCategory.last.id)
+    expect(page).to have_content('Cadastrado com sucesso')
     expect(page).to have_content('A')
     expect(page).to have_link('Voltar')
   end  

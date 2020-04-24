@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Admin valid cars' do
-  scenario 'Succefully' do
+  scenario 'Successfully' do
     user = User.create!(email: 'teste@teste.com.br', password:'12345678')
     gm = Manufacturer.create!(name: 'GM')
     cat_a = CarCategory.create!(name: 'A', daily_rate: '50', insurance: '20', third_insurance: '20')

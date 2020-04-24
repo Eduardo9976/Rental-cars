@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Edit subsidiary' do
-  scenario 'succefully' do
+  scenario 'successfully' do
     Subsidiary.create!(name:'Morumbi Car', cnpj:'10.270.911/0001-92', address:'Rua Santo Antonio')
 
     visit root_path
@@ -15,7 +15,7 @@ feature 'Edit subsidiary' do
     expect(page).to have_content('RR Cars')
   end
 
-  scenario 'succefully' do
+  scenario 'no blank' do
     Subsidiary.create!(name:'Morumbi Car', cnpj:'10.270.911/0001-92', address:'Rua Santo Antonio')
 
     visit root_path

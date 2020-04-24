@@ -1,6 +1,11 @@
-<%= flash[:notice]%>
 <h6>HTML index</h6>
 <h1>Locações</h1>
+
+<%= form_with url:search_rentals_path, local: true, method: :get do |f|%>
+  <%= f.label :q, 'Busca' %>  #q de query, mas poderia ser qualquer nome
+  <%= f.search_field :q %>
+  <%= f.submit 'Pesquisar'%> 
+<% end %>
 
 <%if @rentals.empty?%>
   <h3>Nenhum registro cadastrado</h3>
@@ -8,6 +13,8 @@
 
 <% @rentals.each do |rental| %>
   <dl>
+    <dt> Código </dt>
+    <dd> <%= rental.code %> </dd>
     <dt> <%= Rental.human_attribute_name(:customer) %>: </dt>
     <dd> <%= link_to "#{rental.customer.identification}", rental_path(rental) %> </dd>
     <dt> <%= Rental.human_attribute_name(:car_category) %>: </dt>

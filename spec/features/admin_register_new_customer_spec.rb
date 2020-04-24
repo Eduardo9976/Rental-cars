@@ -15,6 +15,7 @@ feature 'Admin register new customer' do
     click_on 'Enviar'
 
     expect(current_path).to eq customer_path(Customer.last.id)
+    expect(page).to have_content('Cadastrado com sucesso')
     expect(page).to have_content('Eduardo')
     expect(page).to have_content('372.427.458.02')
     expect(page).to have_content('eduardo_2407@me.com')

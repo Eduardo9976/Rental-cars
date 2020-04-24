@@ -10,7 +10,7 @@ feature 'Admin visit car model' do
     expect(page).to have_content('Voltar')
   end
 
-  scenario 'succefully' do
+  scenario 'successfully' do
     user = User.create!(email: 'teste@teste.com.br', password:'12345678') 
     fiat = Manufacturer.create!(name: 'Fiat')
     cat_a = CarCategory.create!(name: 'A', daily_rate: 50, insurance: 20, third_insurance: 20)

@@ -1,12 +1,19 @@
 <h6> HTML Index </h6>
 <h1> Clientes </h1>
 
+<%= form_with url: search_customers_path, local: true, method: :get do |f|%>
+  <%= f.label :q, 'Busca'%>
+  <%= f.search_field :q %>
+  <%= f.submit 'Pesquisar'%>
+<% end %>
+
 <%if @customers.empty?%>
   <h3>Nenhum cliente cadastrado</h3>
 <%end%>
 
 <%@customers.each do |customer|%>
-  <h3><%= link_to customer.name, customer_path(customer)%>
+  <h3> <%= link_to customer.name, customer_path(customer)%> </h3>
+  <h3> <%= customer.cpf %> </h3>
 <% end %>  
 
 <br> <br>

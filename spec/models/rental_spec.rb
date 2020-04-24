@@ -22,6 +22,18 @@ RSpec.describe Rental, type: :model do
       rental.valid?
 
       expect(rental.errors[:start_date]).to be_empty
+    end
+    it 'created automatically' do
+      car_category = CarCategory.create!(name:'A', daily_rate: 100, insurance:100, 
+                                         third_insurance: 100)
+      customer = Customer.create!(name: 'Fulano Sicrano', cpf:'372.427.458-02',
+                                  email: 'teste@teste.com.br')
+      rental = Rental.new(start_date: '16/04/2030', end_date: '18/04/2030',
+                          customer: customer, car_category: car_category)
+
+     rental.save!
+
+     expect(rental.code.size).to eq(6)      
     end  
   end
 end

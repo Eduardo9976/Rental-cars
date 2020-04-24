@@ -14,6 +14,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(params_customer)
     if @customer.save
+      flash[:notice] = 'Cadastrado com sucesso'
       redirect_to @customer
     else 
       render :new
@@ -30,6 +31,7 @@ class CustomersController < ApplicationController
   
   def update
     if @customer.update(params_customer)
+      flash[:notice] = 'Salvo com sucesso'
       redirect_to @customer
     else
       render :edit
@@ -40,6 +42,11 @@ class CustomersController < ApplicationController
     @customer.destroy
     redirect_to customers_path
   end
+
+  def search 
+    @customers = Customer.where(cpf: params[:q])
+    render :index
+  end  
   
   
   private

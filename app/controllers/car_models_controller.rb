@@ -11,6 +11,7 @@ class CarModelsController < ApplicationController
   def create
     @car_model = CarModel.new(params_car_model)
     if @car_model.save
+      flash[:notice] = 'Cadastrado com sucesso'
       redirect_to @car_model
     else
       render :new
@@ -27,6 +28,7 @@ class CarModelsController < ApplicationController
   end
   def update
     if @car_model.update(params_car_model)
+      flash[:notice] = 'Salvo com sucesso'
       redirect_to @car_model
     else
       render :edit
