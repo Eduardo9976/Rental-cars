@@ -1,0 +1,19 @@
+<h6>HTML Search</h6>
+
+<h1> O resultado da busca por: <%= @search_query %>
+<h3> Número de resultados encontrados: <%= @customers.count %>
+
+<p> <% @customers.each do |customer| %> </p>
+  <dl>
+    <dt> <%= Customer.human_attribute_name(:name) %> </dt>
+    <dd> <%= customer.name %> </dd>
+    <dt> <%= Customer.human_attribute_name(:cpf) %> </dt>
+    <dd> <%= customer.cpf %> </dd>
+    <dt> <%= Customer.human_attribute_name(:email) %> </dt>
+    <dd> <%= customer.email %> </dd>
+  </dl>
+  <br>
+  <br>
+<% end %>  
+
+<%= link_to  "Voltar", customers_path %>

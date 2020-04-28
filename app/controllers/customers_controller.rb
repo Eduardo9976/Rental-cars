@@ -44,8 +44,9 @@ class CustomersController < ApplicationController
   end
 
   def search 
-    @customers = Customer.where(cpf: params[:q])
-    render :index
+    @search_query = params[:q]
+    @customers = Customer.where("name LIKE ?", "%#{@search_query}%")
+                         .or(Customer.where(cpf: @search_query))
   end  
   
   
