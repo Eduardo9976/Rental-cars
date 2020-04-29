@@ -6,9 +6,19 @@ class Rental < ApplicationRecord
   validates :code, uniqueness: true
   validate :valid_end_date
   validate :valid_start_date
-
-  before_create :generate_code
+  enum status: {scheduled: 0, ongoing: 10 }
   
+  before_create :generate_code
+
+  
+  
+  def set_scheduled
+    self.status = 'scheduled'
+  end
+  
+  def generate_code
+    self.code = SecureRandom.alphanumeric(6).upcase
+  end  
   
   def valid_end_date
     return if end_date.nil? || start_date.nil?
@@ -28,7 +38,4 @@ class Rental < ApplicationRecord
   
   private
 
-  def generate_code
-    self.code = SecureRandom.alphanumeric(6).upcase
-  end  
 end
