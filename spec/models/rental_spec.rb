@@ -44,7 +44,7 @@ RSpec.describe Rental, type: :model do
                           customer: customer, car_category: car_category)
 
       rental.save!
-
+    
       expect(rental.scheduled?).to be true
       
     end

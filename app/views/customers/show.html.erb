@@ -13,3 +13,19 @@
 <%=link_to "Apagar cliente", @customer,
               method: :delete,
               data: { confirm: 'Deseja realmente apagar o cliente?' }%>
+
+<h1>Agendamentos</h1>
+<%if @customer.rentals.empty?%>
+  <h2>Nenhum agendamento cadastrado</h2>
+<%end %>  
+
+<% @customer.rentals.each do |rental| %>
+<div>
+  <dl>
+    <dt> Código </dt>
+    <dd><%= rental.code %> </dd>
+    <dt> Categoria <dt>
+    <dd> <%= rental.car_category.name %> </dd>
+    <%= link_to 'Iniciar Locação', start_rental_path(rental.id) %> 
+<% end %>
+             

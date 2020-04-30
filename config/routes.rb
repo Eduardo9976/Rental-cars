@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :car_models, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   resources :rentals, only: %i[index new create show edit update destroy] do
     get 'search', on: :collection
+    get 'start', on: :member
+    post 'start', on: :member, to: 'rentals#confirm'
   end
   resources :cars, only: %i[index new create show edit update destroy] do 
     get 'search', on: :collection

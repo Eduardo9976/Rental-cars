@@ -48,7 +48,18 @@ class RentalsController < ApplicationController
   def search
     @rentals = Rental.where(code: params[:q])
     render :index
-  end  
+  end
+  
+  def start
+    @rental = set_rental
+    car_models = @rental.car_category.car_models
+    @available_cars = Car.where(car_model:  car_models)
+  end
+  def confirm 
+    @rental = set_rental
+    redirect_to @rental
+    @rental.update(status: :ongoing)
+  end   
   
 
   private

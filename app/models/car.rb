@@ -4,6 +4,11 @@ class Car < ApplicationRecord
   validates :license_plate, :color, :mileage, :car_model, presence: true
   validates :license_plate, uniqueness: true
   validate :valid_mileage
+  
+  def description
+    "#{car_model.manufacturer.name} #{car_model.name} - Placa: #{license_plate} - Cor: #{color}"
+  end
+
 
   def valid_mileage
     return if mileage.nil?
@@ -13,3 +18,4 @@ class Car < ApplicationRecord
     end
   end    
 end
+

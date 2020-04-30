@@ -6,7 +6,7 @@
 <p> <% @customers.each do |customer| %> </p>
   <dl>
     <dt> <%= Customer.human_attribute_name(:name) %> </dt>
-    <dd> <%= customer.name %> </dd>
+    <dd> <%= link_to "#{customer.name}", customer_path(customer) %> </dd>
     <dt> <%= Customer.human_attribute_name(:cpf) %> </dt>
     <dd> <%= customer.cpf %> </dd>
     <dt> <%= Customer.human_attribute_name(:email) %> </dt>
@@ -15,5 +15,6 @@
   <br>
   <br>
 <% end %>  
+
 
 <%= link_to  "Voltar", customers_path %>
