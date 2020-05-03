@@ -66,7 +66,7 @@ feature 'Admin begin rental' do
     car_model = CarModel.create!(name:'Mobi', manufacturer: fiat, car_category: car_category, fuel_type: 'flex', 
                                 motorization: '2.0', year: '2020')
 
-    car = Car.create!(license_plate: 'ABC-1234', mileage: 1000, color: 'Azul', car_model: car_model) 
+    car = Car.create!(license_plate: 'ABC-1234', mileage: 1000, color: 'Azul', car_model: car_model, status: :available) 
 
     customer = Customer.create!(name: 'Fulano Sicrano', cpf:'372.427.458-02',
                                 email: 'teste@teste.com.br')
@@ -77,11 +77,23 @@ feature 'Admin begin rental' do
     login_as user, scope: :user
     visit start_rental_path(rental.id)
     select 'Fiat Mobi - Placa: ABC-1234 - Cor: Azul', from: 'Carro'
-    click_on 'Confirmar'
 
+  
+    travel_to Time.zone.local(2020, 05, 01, 13, 00, 00) do
+      click_on 'Confirmar'
+    end
+      
+
+    rental.reload
+    car.reload
     expect(current_path).to eq rental_path(rental.id)
+    expect(rental.ongoing?).to be true
+    expect(car.rented?).to be true
     expect(page).to have_content 'Iniciada'
     expect(page).to have_content 'Fulano Sicrano'
+    expect(page).to have_content 'Horário da retirada'
     expect(page).to have_content 'Fiat Mobi - Placa: ABC-1234 - Cor: Azul'
+    expect(page).to have_content 'Usuário responsável teste@teste.com.br'
+    expect(page).to have_content 'Horário da retirada 01/05/2020 13:00:00'
   end  
 end

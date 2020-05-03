@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: %i[show edit update destroy]
+  before_action :set_rental, only: %i[show edit update destroy confirm]
   before_action :bd_all
   before_action :authenticate_user!
   
@@ -57,8 +57,23 @@ class RentalsController < ApplicationController
   end
   def confirm 
     @rental = set_rental
+    @car = Car.find(params[:car_id])
+    @user = current_user
+
+    begin
+    ActiveRecord::Base.transaction do
+      @rental.ongoing!
+      @car.rented!
+      
+      CarRental.create!(rental:@rental, car:@car, start_date: Time.zone.now, user:current_user,
+                      daily_rate:@rental.car_category.daily_rate, insurance:@rental.car_category.insurance,
+                      third_insurance: @rental.car_category.third_insurance )
+
+                           
+      end
+    logger.error"#{@rental.code}- não foi possível iniciar a locação"                    
+    end
     redirect_to @rental
-    @rental.update(status: :ongoing)
   end   
   
 

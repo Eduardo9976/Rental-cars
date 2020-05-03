@@ -13,8 +13,22 @@
    <dt> status </dt>
   <dd> <%=  t @rental.status %> </dd>
   <br>
-  <%= link_to 'Iniciar Locação', start_rental_path(@rental.id) %> 
+  <% if @rental.scheduled?%>
+    <%= link_to 'Iniciar Locação', start_rental_path(@rental.id) %> 
+  <% end %>  
 <dl>
+
+<% if @rental.ongoing? %>
+  <h2> Dados da locação </h2>
+  <dl>
+    <dt>Carro retirado </dt>
+    <dd> <%= @rental.car_rental.car.description %>
+    <dt>Usuário responsável </dt>
+    <dd> <%= @rental.car_rental.user.email %>
+    <dt>Horário da retirada </dt>
+    <dd> <%= l @rental.car_rental.start_date, format: :custom %>
+  </dl> 
+<% end %>
 
 <%= link_to "Voltar", rentals_path %>
 <%= link_to "Editar", edit_rental_path%>
