@@ -54,28 +54,10 @@ class RentalsController < ApplicationController
     @rental = set_rental
     car_models = @rental.car_category.car_models
     @available_cars = Car.where(car_model:  car_models)
+    @add_ons = AddOn.all
+    @car_rental = CarRental.new(rental: @rental)
   end
-  def confirm 
-    @rental = set_rental
-    @car = Car.find(params[:car_id])
-    @user = current_user
-
-    begin
-    ActiveRecord::Base.transaction do
-      @rental.ongoing!
-      @car.rented!
-      
-      CarRental.create!(rental:@rental, car:@car, start_date: Time.zone.now, user:current_user,
-                      daily_rate:@rental.car_category.daily_rate, insurance:@rental.car_category.insurance,
-                      third_insurance: @rental.car_category.third_insurance )
-
-                           
-      end
-    logger.error"#{@rental.code}- não foi possível iniciar a locação"                    
-    end
-    redirect_to @rental
-  end   
-  
+   
 
   private
 

@@ -11,11 +11,10 @@ Rails.application.routes.draw do
   resources :rentals, only: %i[index new create show edit update destroy] do
     get 'search', on: :collection
     get 'start', on: :member
-    post 'start', on: :member, to: 'rentals#confirm'
+    #post 'start', on: :member, to: 'rentals#confirm' -> trocamos pelo car_rentals create
   end
   resources :cars, only: %i[index new create show edit update destroy] do 
     get 'search', on: :collection
-  end  
-  
-  
+  end
+  resources :car_rentals, only: [:create]  
 end

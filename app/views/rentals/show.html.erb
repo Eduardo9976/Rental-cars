@@ -27,7 +27,13 @@
     <dd> <%= @rental.car_rental.user.email %>
     <dt>Horário da retirada </dt>
     <dd> <%= l @rental.car_rental.start_date, format: :custom %>
-  </dl> 
+    <dt>Valor da Diária </dt>
+    <dd> <%=number_to_currency @rental.car_rental.daily_rate %>
+  </dl>
+  <h2> Acessórios Contratados </h2>
+  <% @rental.car_rental.add_ons.each do |add_on| %>
+    <%= add_on.name%>
+  <% end %>   
 <% end %>
 
 <%= link_to "Voltar", rentals_path %>
