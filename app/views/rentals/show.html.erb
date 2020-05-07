@@ -10,7 +10,7 @@
   <dd> <%= l @rental.end_date, format: :default  %> </dd>
   <dt> <%= Rental.human_attribute_name(:car_category)%> </dt>
   <dd> <%=  @rental.car_category.name %>
-   <dt> status </dt>
+  <dt> status </dt>
   <dd> <%=  t @rental.status %> </dd>
   <br>
   <% if @rental.scheduled?%>

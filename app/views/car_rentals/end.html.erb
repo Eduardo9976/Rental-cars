@@ -13,6 +13,16 @@
   <dd> <%= l @car_rental.rental.car_rental.start_date, format: :custom %>
   <dt>Horário da devolução </dt>
   <dd> <%= l @car_rental.rental.car_rental.end_date, format: :custom %>
-  <dt>Valor Total </dt>
-  <dd> <%= number_to_currency @car_rental.rental.car_rental.amount %>
 </dl>
+
+<dl>
+  <h2> Valores cobrados por diária </h2>
+  <dt> Valor de cada diária <dt>
+  <dd> <%= number_to_currency @car_rental.daily_rate %>
+  <dt> Valor por dia do seguro <dt>
+  <dd> <%= number_to_currency @car_rental.insurance %>
+  <dt> Valor por dia do seguro para terceiros <dt>
+  <dd> <%= number_to_currency @car_rental.third_insurance %>
+  <dt> Valor Total </dt>
+  <dd> <%= number_to_currency @car_rental.rental.car_rental.amount %>
+</dl>  

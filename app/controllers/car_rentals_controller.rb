@@ -25,7 +25,7 @@ class CarRentalsController < ApplicationController
     @car_rental.rental.closed!
     @car_rental.car.available!
     @car_rental.end_date = Time.zone.now
-    @car_rental.amount = count
+    @car_rental.amount = count_amount
     
    
   end  
@@ -40,20 +40,36 @@ class CarRentalsController < ApplicationController
     @car_rental = CarRental.find(params[:id])
   end
 
-  def count 
+
+  def count_days
     start = @car_rental.start_date
     devolution = Time.current
-    daily_rate = @car_rental.daily_rate
-    #insurance = @car_rental.insurance
-    #third_insurance = @car_rental.third_insurance
-
-    
     days = devolution.day - start.day
-
+  end
   
-    daily_value = days * daily_rate
-    #insurance_value  = days * insurance
-    #third_insurance_value = days * third_insurance
+  def amount_daily_rate
+    days = count_days  
+    daily_rate = @car_rental.daily_rate
+    count = days * daily_rate
+    value = count.to_f > daily_rate.to_f ? count : daily_rate  
+  end
 
+  def amount_insurance
+    days = count_days
+    insurance = @car_rental.insurance
+    count = days * insurance
+    value = count.to_f > insurance.to_f ? count : insurance   
+  end
+
+  def amount_third_insurance
+    days = count_days 
+    third_insurance = @car_rental.third_insurance
+    count = days * third_insurance
+    value = count.to_f > third_insurance.to_f ? count : third_insurance
+  end  
+
+
+  def count_amount
+    amount_daily_rate.to_f + amount_insurance.to_f + amount_third_insurance.to_f
   end  
 end    
