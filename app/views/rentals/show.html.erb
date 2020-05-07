@@ -30,14 +30,27 @@
     <dt>Valor da Diária </dt>
     <dd> <%=number_to_currency @rental.car_rental.daily_rate %>
   </dl>
+
+
   <h2> Acessórios Contratados </h2>
+  <% if @rental.car_rental.add_ons.empty? %>
+    <h3> Nenhum acessório adicional contratado </h3>
+  <% end %>  
+
   <% @rental.car_rental.add_ons.each do |add_on| %>
     <%= add_on.name%>
   <% end %>   
 <% end %>
+<br>
+<br>
+<% if @rental.ongoing? %>
+  <%= link_to 'Encerrar Locação', end_car_rental_path(@rental.id) %>
+<% end %>
 
 <%= link_to "Voltar", rentals_path %>
+<!--
 <%= link_to "Editar", edit_rental_path%>
 <%= link_to "Apagar", @rental,
               method: :delete,
-              data: { confirm: 'Deseja realmente apagar a Categoria?' }%>
+              data: { confirm: 'Deseja realmente apagar a Categoria?' }%> 
+-->              

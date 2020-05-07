@@ -7,7 +7,7 @@ class Rental < ApplicationRecord
   validates :code, uniqueness: true
   validate :valid_end_date
   validate :valid_start_date
-  enum status: {scheduled: 0, ongoing: 10 }
+  enum status: {scheduled: 0, ongoing: 10, closed: 20}
   
   before_create :generate_code
 

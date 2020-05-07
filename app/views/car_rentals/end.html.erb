@@ -1,0 +1,18 @@
+<h1> Encerrar HTML </h1>
+
+<dl>
+  <dt>Código</dt>
+  <dd><%= @car_rental.rental.code %>
+  <dt>Cliente<dt>
+  <dd> <%= @car_rental.rental.customer.name %> </dd>
+  <dt>Categoria</dt>
+  <dd><%= @car_rental.rental.car_category.name %></dd>
+  <dt>Status</dt>
+  <dd><%= @car_rental.rental.status %></dd>
+  <dt>Horário da retirada </dt>
+  <dd> <%= l @car_rental.rental.car_rental.start_date, format: :custom %>
+  <dt>Horário da devolução </dt>
+  <dd> <%= l @car_rental.rental.car_rental.end_date, format: :custom %>
+  <dt>Valor Total </dt>
+  <dd> <%= number_to_currency @car_rental.rental.car_rental.amount %>
+</dl>

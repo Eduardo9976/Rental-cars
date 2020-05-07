@@ -33,6 +33,20 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = {from: 'no-reply@example.com'}
+
+  Rails.application.configure do
+    #append this settings  config.action_mailer.raise_delivery_errors = true 
+     config.action_mailer.perform_deliveries = true  
+     config.action_mailer.delivery_method = :smtp  
+     config.action_mailer.smtp_settings = {    :address => 'smtp-relay.sendinblue.com',
+          :port => 587,
+          :user_name => 'dudu9976@gmail.com',   
+          :password => 'OBYNgPaKyFX3zIJH',    
+          :authentication => 'login',    
+          :enable_starttls_auto => true  }
+  end
 
   config.action_mailer.perform_caching = false
 

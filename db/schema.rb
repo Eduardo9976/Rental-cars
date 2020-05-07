@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_135647) do
+ActiveRecord::Schema.define(version: 2020_05_07_021442) do
 
   create_table "add_on_car_rentals", force: :cascade do |t|
     t.integer "add_on_id", null: false
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2020_05_05_135647) do
     t.decimal "third_insurance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "end_date"
+    t.decimal "amount"
     t.index ["car_id"], name: "index_car_rentals_on_car_id"
     t.index ["rental_id"], name: "index_car_rentals_on_rental_id"
     t.index ["user_id"], name: "index_car_rentals_on_user_id"

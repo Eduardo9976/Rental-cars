@@ -14,6 +14,7 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(params_rental)
     if @rental.save
+      RentalMailer.rental_scheduled(@rental.id).deliver_now
       flash[:notice] = 'Cadastrado com sucesso'
       redirect_to @rental
     else
@@ -57,6 +58,8 @@ class RentalsController < ApplicationController
     @add_ons = AddOn.all
     @car_rental = CarRental.new(rental: @rental)
   end
+
+ 
    
 
   private
