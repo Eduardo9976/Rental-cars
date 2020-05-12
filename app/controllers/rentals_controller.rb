@@ -14,7 +14,7 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(params_rental)
     if @rental.save
-      RentalMailer.rental_scheduled(@rental.id).deliver_now
+      RentalMailer.rental_scheduled(@rental.id).deliver_later
       flash[:notice] = 'Cadastrado com sucesso'
       redirect_to @rental
     else

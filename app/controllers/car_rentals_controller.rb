@@ -51,21 +51,21 @@ class CarRentalsController < ApplicationController
     days = count_days  
     daily_rate = @car_rental.daily_rate
     count = days * daily_rate
-    value = count.to_f > daily_rate.to_f ? count : daily_rate  
+    value = count.to_f > daily_rate.to_f ? count : daily_rate.to_f  
   end
 
   def amount_insurance
     days = count_days
     insurance = @car_rental.insurance
     count = days * insurance
-    value = count.to_f > insurance.to_f ? count : insurance   
+    value = count.to_f > insurance.to_f ? count : insurance.to_f   
   end
 
   def amount_third_insurance
     days = count_days 
     third_insurance = @car_rental.third_insurance
     count = days * third_insurance
-    value = count.to_f > third_insurance.to_f ? count : third_insurance
+    value = count.to_f > third_insurance.to_f ? count : third_insurance.to_f
   end  
 
 

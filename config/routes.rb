@@ -19,4 +19,10 @@ Rails.application.routes.draw do
   resources :car_rentals, only: [:create]  do
     get 'end', on: :member
   end
+  #get 'api/v1/cars', to: 'api#cars'
+  namespace :api, defaults: {format: :json } do
+    namespace :v1 do
+      resources :cars, only: %i[index]
+    end
+  end    
 end

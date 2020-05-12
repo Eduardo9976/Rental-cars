@@ -17,8 +17,10 @@ feature 'Admin register rental' do
     fill_in 'Data final', with: '18/04/2030'
     select car_category.name, from: 'Categoria'
     select customer.name, from: 'Cliente'
+    #expect(RentalMailer).to receive(:rental_scheduled).and_call_original 
     click_on 'Enviar'
 
+    
     expect(page).to have_content('16/04/2030')
     expect(page).to have_content('18/04/2030')
     expect(page).to have_content(/A/)
