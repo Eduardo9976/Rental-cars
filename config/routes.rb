@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   #get 'api/v1/cars', to: 'api#cars'
   namespace :api, defaults: {format: :json } do
     namespace :v1 do
-      resources :cars, only: %i[index]
+      resources :cars, only: %i[index show]
     end
   end    
 end
